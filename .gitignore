@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv
+venv/
+ENV/
+.env
+
+# Data (Crucial for Olist)
+data/raw/*.csv
+data/vector_store/chroma_db/
+
+# IDEs
+.vscode/
+.idea/
+
+# Docker
+.docker_data/
