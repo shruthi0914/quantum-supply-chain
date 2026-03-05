@@ -2,7 +2,7 @@ import sqlparse
 from typing import List, Dict, Any, Optional
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.pydantic_v1 import BaseModel, Field
+from pydantic import BaseModel, Field
 
 class SQLQuery(BaseModel):
     """A SQL query generated from natural language."""
@@ -13,7 +13,7 @@ class DataRetrievalAgent:
     def __init__(self, model_name: str = "gpt-4o"):
         self.llm = ChatOpenAI(model=model_name, temperature=0)
         self.sql_prompt = ChatPromptTemplate.from_messages([
-            ("system", """You are a Senior Data Engineer at McKinsey QuantumBlack.
+            ("system", """You are a Senior Data Engineer.
             Convert natural language requests into efficient PostgreSQL queries.
             Schema reference:
             - products(product_id, product_category_name, ...)

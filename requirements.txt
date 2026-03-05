@@ -12,8 +12,10 @@ xgboost
 prophet
 psycopg2-binary
 sqlalchemy
+sqlparse
 openai
 chromadb
+pydantic
 python-dotenv
 pytest
 black

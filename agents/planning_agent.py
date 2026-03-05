@@ -2,7 +2,7 @@ import os
 from typing import List, Dict, Any
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.pydantic_v1 import BaseModel, Field
+from pydantic import BaseModel, Field
 
 class SubTask(BaseModel):
     """A sub-task to be executed by a specialized agent."""
@@ -19,7 +19,7 @@ class PlanningAgent:
     def __init__(self, model_name: str = "gpt-4o"):
         self.llm = ChatOpenAI(model=model_name, temperature=0)
         self.planner_prompt = ChatPromptTemplate.from_messages([
-            ("system", """You are the Senior Planning Agent at McKinsey QuantumBlack. 
+            ("system", """You are the Senior Planning Agent for a Supply Chain Optimization system. 
             Decompose high-level supply chain queries into a structured execution plan.
             Specialized Agents available:
             1. Data Retrieval Agent: Fetches SQL data (Orders, Products, etc.).
